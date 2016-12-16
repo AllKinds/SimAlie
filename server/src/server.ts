@@ -1,6 +1,7 @@
 ///<reference path="../typings/index.d.ts"/>
 
 import * as bodyParser	from 'body-parser';
+import * as cors		from 'cors';
 import * as express 	from 'express';
 import * as http 		from 'http';
 import * as fs 			from 'fs';
@@ -12,6 +13,8 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(cors());
+
 mongoose.connect('mongodb://localhost/iou');
 
 app.use(morgan('dev'));
@@ -22,6 +25,7 @@ app.get('/', function(req, res) {
 
 // Routs
 require('./api/contacts')(app);
+require('./api/debts')(app);
 
 // Initialize
 var server = app.listen(3000, function() {
