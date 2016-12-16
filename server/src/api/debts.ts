@@ -20,10 +20,9 @@ module.exports = function(app) {
 		Debts.create(debt, function(err, debt){
 			if(err) {
 				res.send(err);
-				console.log(err);
 			}
+			res.json(debt);
 		});
-		res.json(debt);
 	}
 
 	function validateDebt(debt): Boolean{
@@ -48,4 +47,19 @@ module.exports = function(app) {
 			res.status(500).send(msg)
 		}
 	});
+
+	app.delete('/api/debts/:debt_id', middlewares.tempmid, function(req, res) {
+		console.log(req.params);
+		Debts.remove({
+			_id: req.params.debt_id
+		}, function (err, soft) {
+			if(err) {
+				console.log("Err Err..."+err);
+				res.send(err);
+				return;
+			}
+			res.json(req.params.debt_id);
+		});
+	});
+
 }

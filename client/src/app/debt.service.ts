@@ -31,6 +31,12 @@ export class DebtService {
                     .catch(this.handleError);
   }
 
+  deleteDebt (id: string): Observable<Debt> {
+    return this.http.delete(`${this.debtsUrl}/${id}`)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
 
   private extractData(res: Response) {
   	let body = res.json();

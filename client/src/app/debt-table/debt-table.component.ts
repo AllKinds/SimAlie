@@ -37,4 +37,12 @@ export class DebtTableComponent implements OnInit {
   						error => this.errorMessage = <any>error);
   }
 
+  deleteDebt (debt: Debt) {
+    // Add "R U Sure??"
+    this.debtService.deleteDebt(debt._id)
+            .subscribe(
+              debt  => this.getDebts(),
+              error => this.errorMessage = <any>error);
+  }
+
 }

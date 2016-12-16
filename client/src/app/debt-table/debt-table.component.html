@@ -1,7 +1,10 @@
 <h1>My Debts</h1>
 <h3>Debts:</h3>
 <ul>
-  <li *ngFor="let debt of debts">{{debt.amount}}</li>
+  <li *ngFor="let debt of debts">
+  {{debt.amount}}
+  <button (click)="deleteDebt(debt)" >X</button>
+  </li>
 </ul>
 <label>New debt amount: <input #newDebtAmount /></label>
 <button (click)="addDebt(newDebtAmount.value); newDebtAmount.value=''">Add Debt</button>

@@ -1,7 +1,11 @@
 export class Debt {
 	constructor(
-		public id: string,
+		private _id: string,
 		public date: Date,
 		public amount: number
 		){}
+
+	getId(): string {
+		return this._id;
+	}
 }
