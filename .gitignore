@@ -1,0 +1,32 @@
+**/node_modules
+server/build/*
+server/typings/*
+
+
+# compiled output
+*/dist
+*/tmp
+
+# dependencies
+*/node_modules
+*/bower_components
+
+# IDEs and editors
+*/.idea
+*/.vscode
+*.project
+*.classpath
+*.c9/
+*.launch
+*.settings/
+
+# misc
+*/.sass-cache
+*/connect.lock
+*/coverage/*
+*/libpeerconnection.log
+*/typings
+
+# e2e
+*/e2e
+*/e2e
